@@ -42,3 +42,6 @@ packrat/src/
 # data
 input/
 
+# r script
+xx_insert_DB.R
+
