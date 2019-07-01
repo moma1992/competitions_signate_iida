@@ -39,3 +39,6 @@ packrat/lib*/
 packrat/src/
 .Rprofile
 
+# data
+input/
+
