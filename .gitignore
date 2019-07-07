@@ -42,6 +42,15 @@ packrat/src/
 # data
 input/
 
-# r script
-xx_insert_DB.R
+# catboost
+cat*
 
+# core
+core.
+
+# csv
+*.csv
+
+# dir
+submit/
+tmp/
