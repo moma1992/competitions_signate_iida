@@ -29,3 +29,20 @@ convert_levelplan <- function(data_typ) {　　
         TRUE ~ 0)
     )
 }
+
+#緯度経度情報をjoin
+get_geo_data <- function(data_typ) {
+  #経度緯度データを読み込み
+  geo_train <- read_csv('./result/result_geo_train.csv')
+  geo_test <- read_csv('./result/result_geo_test.csv')
+  
+  #test train データを結合
+  mst_geo_data <- dplyr::union(geo_train, geo_test) %>%
+    select(-X1)
+  
+  #test train データにgeoデータをjoin
+  data_typ %<>%
+    dplyr::left_join(mst_geo_data,
+                     by = c("jukyo" = "city_name")) %>%
+    dplyr::select(-target_city)
+}
