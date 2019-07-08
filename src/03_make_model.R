@@ -8,7 +8,7 @@ test_pool <- catboost.load_pool(data = x_test)
 
 # set model params ---------------------------------------------
 params <- list(
-  iterations = 500,
+  iterations = 3000,
   learning_rate = 0.01,
   depth = 8,
   loss_function = 'RMSE',
@@ -43,4 +43,4 @@ write_tsv(feat_imp, './result/feat_imp.csv', col_names = TRUE)
 
 # submit data ---------------------------------------------------
 submit <- cbind(test$id, y_pred) %>% as.data.frame()
-write_tsv(submit, './submit/submit_02.tsv', col_names = FALSE)
+write_tsv(submit, './submit/submit_03.tsv', col_names = FALSE)
