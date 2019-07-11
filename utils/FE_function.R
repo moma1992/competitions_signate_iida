@@ -38,7 +38,8 @@ get_geo_data <- function(data_typ) {
   
   #test train データを結合
   mst_geo_data <- dplyr::union(geo_train, geo_test) %>%
-    select(-X1)
+    dplyr::select(-X1) %>%
+    dplyr::distinct(city_name, .keep_all = TRUE)
   
   #test train データにgeoデータをjoin
   data_typ %<>%
